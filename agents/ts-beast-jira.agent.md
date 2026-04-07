@@ -56,6 +56,16 @@ Always:
 Use `pull-request-writing` when translating ticket work into PR wording.
 Use `typescript-ddd-development` and `typescript-hexagonal-architecture` when the ticket implies domain or architecture changes.
 
+## Delegation policy
+
+If `agent/runSubagent` is available, you may delegate bounded supporting subtasks when that clearly improves throughput.
+
+When delegating:
+- keep ownership of the final technical plan
+- delegate focused repository scans or side analysis only
+- do not delegate the immediate next blocking step when local execution is faster
+- verify and integrate subagent output before finishing
+
 ## Output format
 
 Prefer this structure:

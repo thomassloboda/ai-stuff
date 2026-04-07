@@ -39,6 +39,16 @@ Use `observability-troubleshooting` by default.
 Use `incident-debugging` when the task becomes a code-level root cause investigation.
 Use `typescript-hexagonal-architecture` when tracing ownership across layers or adapters.
 
+## Delegation policy
+
+If `agent/runSubagent` is available, you may delegate bounded supporting subtasks when that clearly improves throughput.
+
+When delegating:
+- keep ownership of the final incident assessment
+- delegate focused evidence gathering or side investigations only
+- do not delegate the immediate next blocking step when local execution is faster
+- verify and integrate subagent output before finishing
+
 ## Output format
 
 Prefer this structure:

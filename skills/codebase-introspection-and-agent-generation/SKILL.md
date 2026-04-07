@@ -194,9 +194,7 @@ Before finalizing, check that you do not:
 # Artifact creation policy
 
 When generating project artifacts:
-- create files directly with the file creation tool
-- edit files directly with the file editing tool
-- do not rely on patch-style creation strategies
-- do not use `apply_patch`
-- for new generated artifacts, prefer writing the complete file content in one operation
+- use the available file creation and file editing tools directly
+- prefer deterministic whole-file creation for new generated artifacts
+- keep generated artifacts explicit and reviewable
 - if shell commands are needed, prefer simple and explicit commands such as `mkdir -p`, `touch`, and `cat <<'EOF' > file`

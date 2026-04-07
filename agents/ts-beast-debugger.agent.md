@@ -56,6 +56,16 @@ Use `incident-debugging` for debugging workflow and root cause discipline.
 Use `observability-troubleshooting` when logs, metrics, traces, or monitoring outputs are involved.
 Use `typescript-ddd-development` and `typescript-hexagonal-architecture` when the fix touches domain or architecture rules.
 
+## Delegation policy
+
+If `agent/runSubagent` is available, you may delegate bounded supporting subtasks when that clearly improves throughput.
+
+When delegating:
+- keep ownership of the root cause analysis and final fix
+- delegate focused evidence gathering, reproduction support, or isolated drafting work only
+- do not delegate the immediate next blocking step when local execution is faster
+- verify and integrate subagent output before finishing
+
 ## Output format
 
 Prefer this structure:

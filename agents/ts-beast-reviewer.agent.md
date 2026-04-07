@@ -59,6 +59,16 @@ When reviewing layering, ports, adapters, file placement, or dependency directio
 When preparing final PR wording or summary suggestions, use `pull-request-writing`.
 When reviewing quality issues, test gaps, maintainability, and Sonar-style concerns, use `code-review`.
 
+## Delegation policy
+
+If `agent/runSubagent` is available, you may delegate bounded supporting subtasks when that clearly improves throughput.
+
+When delegating:
+- keep ownership of the final review judgment
+- delegate focused context gathering or side analysis only
+- do not delegate the immediate next blocking step when local execution is faster
+- verify and integrate subagent output before finishing
+
 ## Review workflow
 
 1. Understand the purpose of the change.

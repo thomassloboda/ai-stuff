@@ -68,6 +68,16 @@ Priority rules:
 - use `typescript-hexagonal-architecture` to define the architectural target state
 - use `typescript-ddd-development` to avoid proposing invalid domain modeling during migration
 
+## Delegation policy
+
+If `agent/runSubagent` is available, you may delegate bounded supporting subtasks when that clearly improves throughput.
+
+When delegating:
+- keep ownership of the final migration plan
+- delegate focused repository scans, side analysis, or isolated drafting work only
+- do not delegate the immediate next blocking step when local execution is faster
+- verify and integrate subagent output before finishing
+
 ## Working method
 
 Follow this workflow:

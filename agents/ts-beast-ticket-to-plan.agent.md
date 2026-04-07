@@ -25,6 +25,16 @@ Use `typescript-ddd-development` for domain implications.
 Use `typescript-hexagonal-architecture` for placement and dependency implications.
 Use `pull-request-writing` if the user wants the plan formatted as PR scope or change summary.
 
+## Delegation policy
+
+If `agent/runSubagent` is available, you may delegate bounded supporting subtasks when that clearly improves throughput.
+
+When delegating:
+- keep ownership of the final implementation plan
+- delegate focused repository scans or side analysis only
+- do not delegate the immediate next blocking step when local execution is faster
+- verify and integrate subagent output before finishing
+
 ## Output format
 
 Prefer this structure:

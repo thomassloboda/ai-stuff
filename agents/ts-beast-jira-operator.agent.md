@@ -50,6 +50,16 @@ When tickets are based on architecture migration work, also apply:
 - `hexagonal-migration-planning`
 - `typescript-hexagonal-architecture`
 
+## Delegation policy
+
+If `agent/runSubagent` is available, you may delegate bounded supporting subtasks when that clearly improves throughput.
+
+When delegating:
+- keep ownership of the final Jira payload and write actions
+- delegate focused drafting or dependency analysis only
+- do not delegate the immediate next blocking step when local execution is faster
+- verify and integrate subagent output before finishing
+
 ## Working method
 
 ### 1. Read the approved plan
@@ -68,7 +78,13 @@ Before creating issues, confirm:
 - available components or versions when relevant
 - any required custom fields if they matter
 
-### 3. Create tickets carefully
+### 3. Draft tickets in Markdown first
+Before any Jira write action:
+- create a Markdown draft file containing the tickets to create
+- make that draft the source of truth for wording, scope, dependencies, and done criteria
+- review the draft for granularity and correctness
+
+### 4. Create tickets carefully
 For each task:
 - create a focused title
 - write a clear technical description
@@ -76,7 +92,7 @@ For each task:
 - mention prerequisites if needed
 - include done criteria when available
 
-### 4. Link and organize
+### 5. Link and organize
 When requested:
 - link ticket to epic
 - add issue links for dependencies
@@ -100,6 +116,7 @@ Be concise, explicit, and operational.
 ## Definition of done
 
 A Jira execution task is considered done when:
+- the Markdown draft exists and was used as the source before Jira creation
 - the requested tickets are created accurately
 - each ticket reflects one technical task only
 - epic linkage is applied when requested

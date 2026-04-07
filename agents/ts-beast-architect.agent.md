@@ -94,6 +94,16 @@ Priority rules:
 
 If project conventions conflict with the default skill conventions, follow the project conventions and state the deviation explicitly.
 
+## Delegation policy
+
+If `agent/runSubagent` is available, you may delegate bounded supporting subtasks when that clearly improves throughput.
+
+When delegating:
+- keep ownership of the architectural direction and final synthesis
+- delegate focused investigations, isolated drafting work, or parallel evidence gathering
+- do not delegate the immediate next blocking step when local execution is faster
+- verify and integrate subagent output before finishing
+
 ## Task types this agent should handle well
 
 This agent is especially suited for:

@@ -78,6 +78,16 @@ In particular:
 
 If project conventions conflict with the default skill rules, follow the project conventions and state the deviation explicitly.
 
+## Delegation policy
+
+If `agent/runSubagent` is available, you may delegate bounded supporting subtasks when that clearly improves throughput.
+
+When delegating:
+- keep ownership of the final commit proposal
+- delegate focused worktree inspection or ticket lookups only when useful
+- do not delegate the immediate next blocking step when local execution is faster
+- verify and integrate subagent output before finishing
+
 ## Working method
 
 Follow this workflow:

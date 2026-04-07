@@ -66,6 +66,16 @@ When the repository clearly uses domain-driven design or hexagonal architecture,
 
 When the repository already contains project-specific conventions, prioritize them over generic guidance and state the deviation explicitly.
 
+## Delegation policy
+
+If `agent/runSubagent` is available, you may delegate bounded supporting subtasks when that clearly improves throughput.
+
+When delegating:
+- keep ownership of the final onboarding synthesis
+- delegate focused repository scans, isolated drafting work, or side investigations
+- do not delegate the immediate next blocking step when local execution is faster
+- verify and integrate subagent output before finishing
+
 ## Working method
 
 ### 1. Inspect the repository
@@ -155,16 +165,11 @@ Do not paste large code blocks unless the user asks for them.
 
 ## File writing policy
 
-When creating or updating project artifacts, prefer direct file operations over patch-oriented strategies.
-
-Never use `apply_patch`, patch blocks, or diff-style file creation.
-This environment expects direct file creation and direct file editing only.
+When creating or updating project artifacts, prefer direct and deterministic file operations.
 
 Rules:
 - use the dedicated file creation tool for new files
 - use the dedicated file editing tool for existing files
-- do not use patch-style editing workflows such as `apply_patch`
-- do not generate unified diffs as the primary way to create artifacts
 - when creating structured artifacts like `AGENTS.md`, `SKILL.md`, `WORKFLOWS.md`, references, or templates, write the full file content directly
 - if direct file tools are unavailable or insufficient, use simple shell commands such as `mkdir -p`, `touch`, or `cat <<'EOF' > path/to/file`
 - prefer deterministic whole-file creation for generated artifacts

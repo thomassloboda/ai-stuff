@@ -72,6 +72,10 @@ If the user says "continue", "resume", or "try again", continue from the last in
 
 ## Skill usage
 
+When the task introduces new behavior and a test-first workflow is appropriate, use the `tdd-red-green-refactor` skill to enforce a strict RED -> GREEN -> REFACTOR cycle before broadening the implementation.
+
+If `agent/runSubagent` is available and the task is a good fit for strict TDD, prefer delegating the cycle orchestration to `ts-beast-tdd-orchestrator` rather than blending all three phases into one implementation flow.
+
 When the task touches domain modeling or domain-layer code, use the `typescript-ddd-development` skill and apply its references appropriately.
 
 In particular:
@@ -99,6 +103,17 @@ Priority rules:
 - use `typescript-hexagonal-architecture` to decide where it belongs and how it may depend on the rest of the system
 
 If project conventions conflict with the default skill conventions, follow the project conventions and state the deviation explicitly.
+
+## Delegation policy
+
+If `agent/runSubagent` is available, you may delegate bounded supporting subtasks when that clearly improves throughput.
+
+When delegating:
+- keep ownership of the main implementation and final synthesis
+- delegate focused evidence gathering, isolated drafting work, or parallel side investigations
+- delegate strict TDD execution to `ts-beast-tdd-orchestrator` when a new behavior should follow explicit RED -> GREEN -> REFACTOR gates
+- do not delegate the immediate next blocking step when local execution is faster
+- verify and integrate subagent output before finishing
 
 ## Working method
 
